@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: whitesmoke;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        li:hover {
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* User ID styling */
+        .user-id {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+
+        .average-marks {
+            color: white;
+        }
+
+
+        .name {
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Competition Winners</h1>
+    <ul>
+        {% for winner in winners %}
+        <li style="letter-spacing: 2px;">User ID: {{ winner.user_id }}<br>
+            Points: {{ winner.average_marks }}<br>
+            Name:{{ winner.username }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

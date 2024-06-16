@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSG's Event Management Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Source Sans Pro", Arial, sans-serif;
+            background-image: url(/static/front.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/front.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 100px 20px;
+            /* text-align: center; */
+            height: 100vh;
+            opacity: 0.8;
+            /* Adjust the opacity to make the background image duller */
+        }
+
+
+
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .description {
+            font-size: 18px;
+            margin-bottom: 50px;
+            margin-top: 50px;
+            margin-left: 270px;
+            margin-right: 250px;
+
+        }
+
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .button {
+            background-color: orange;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 0 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .button:hover {
+            background-color: #ff8c00;
+        }
+
+        .arrow {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">EventX</div>
+        <div class="menu">
+            <a href="{{ url_for('login') }}">Login</a>
+
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Welcome to PSG's Event Management Portal!!</h1>
+        <p class="description">Discover the excitement of college events at PSG. Our event management portal provides a
+            comprehensive guide to all the upcoming events organized by various departments. Whether you're a student,
+            faculty member, or guest, you'll find everything you need to know right here.</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('login') }}" class="button">Login <span class="arrow">&rarr;</span></a>
+
+        </div>
+    </div>
+</body>
+
+</html>
