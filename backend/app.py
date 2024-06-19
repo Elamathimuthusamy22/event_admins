@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, session
-from pymongo.errors import BulkWriteError
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from pymongo import MongoClient
+from pymongo.errors import BulkWriteError
 from datetime import datetime
 import pymongo
 
@@ -22,24 +22,23 @@ participants2_collection=db['participants2']
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+    data = request.get_json()
+    username = data['username']
+    password = data['password']
 
-        if username == 'admin' and password == 'admin':
-            session['username'] = 'admin'
-            session['role'] = 'admin'  # Store the role in the session
-            return redirect(url_for('competition_selection'))
-        elif username == 'admin1' and password == 'admin1':
-            session['username'] = 'admin1'
-            session['role'] = 'admin1'  # Store the role in the session
-            return redirect(url_for('competition_selection'))
-        else:
-            return render_template('login.html', error='Invalid credentials. Please try again.')
+    if username == 'admin' and password == 'admin':
+        session['username'] = 'admin'
+        session['role'] = 'admin'
+        return jsonify(success=True)
+    elif username == 'admin1' and password == 'admin1':
+        session['username'] = 'admin1'
+        session['role'] = 'admin1'
+        return jsonify(success=True)
+    else:
+        return jsonify(success=False, message='Invalid credentials. Please try again.')
 
-    return render_template('login.html')
 
 
 @app.route('/competition_selection')
